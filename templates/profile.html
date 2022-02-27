@@ -1,0 +1,59 @@
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>Flask app with Firebase authentification</title>
+</head>
+
+<body>
+    <h1>あなたのプロフィール</h1>
+    {% if userInfo %}
+    <table border="1">
+        <th>ステータス</th>
+        <th>内容</th>
+        <th>編集</th>
+        <th>削除</th>
+        {% for index in range(userInfo_len) %}
+        <tr>
+            <td> {{ userInfo[index][0] }} </td>
+            <td> {{ userInfo[index][1] }} </td>
+            <td>
+                <form action='edit' method='POST'>
+                    <input type='text' name='editInfo' placeholder='編集内容'>
+                    <br>
+                    <button type="submit" name="field" value="{{ userInfo[index][0] }}">
+                        編集
+                    </button>
+                </form>
+            </td>
+            <td>
+                <form action="/delete" method="POST">
+                    <button type="submit" name="field" value="{{ userInfo[index][0] }}">
+                        削除
+                    </button>
+                </form>
+            </td>
+        </tr>
+        {% endfor %}
+    </table>
+    <h2>
+        <ステータスを追加する>
+    </h2>
+    <form action="/add" , method="POST">
+        <input type='text' name='field' placeholder='ステータス'>
+        <br>
+        <input type='text' name='value' placeholder='内容'>
+        <br>
+        <input type="submit" value="追加する">
+    </form>
+    {% endif %} {%if deleteMsg %}
+    <h2>{{ deleteMsg }}</h2>
+    {% endif %} {%if editMsg %}
+    <h2>{{ editMsg }}</h2>
+    {% endif %} {%if addMsg %}
+    <h2>{{ addMsg }}</h2>
+    {% endif %}
+    <a href="/logout">ログアウト</a>
+</body>
+
+</html>

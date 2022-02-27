@@ -1,0 +1,27 @@
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>Flask app with Firebase authentification</title>
+</head>
+
+<body>
+
+    <div>
+        <h1>メールアドレスとパスワードを入力してください</h1>
+        <form action='login' method='POST'>
+            <input type='text' name='email' id='email' placeholder='email' />
+            <br />
+            <input type='password' name='password' id='password' placeholder='password' />
+            <br />
+            <input type='submit' name='submit' />
+        </form>
+        {% if msg %}
+        <h2 style="color:orangered;">{{msg}}</h2>
+        {% endif %}
+    </div>
+    <div><a href="/regist">新規登録へ</a></div>
+
+</body>
+
+</html>

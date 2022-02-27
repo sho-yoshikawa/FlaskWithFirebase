@@ -1,0 +1,15 @@
+# loginUser.set({
+#     "name": "yossy",
+#     "age": 21,
+#     "gender": 'M',
+#     "height": 171.8,
+#     "school": {"college": "nihon"},
+#     ""
+#     "foot": 27.0,
+#     "geekAIMentor": True,
+#     "geekFriend": ["rinrin", "ayuyu"]
+# })
+
+# docments = db.collection('users').stream()
+# for docment in documents:
+#     print(document.to_dict())
